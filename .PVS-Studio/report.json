@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "warnings": [
+    {
+      "code": "",
+      "cwe": 0,
+      "level": 0,
+      "positions": [],
+      "message": "Exception Class: PvsStudioCoreStartupException \r\nException Message:  \r\nFailed to run analyzer core. Make sure the correct 64-bit Java 11 or higher executable is used, or specify it manually. (Cannot run program \"java\": CreateProcess error\u003d2, Не удается найти указанный файл) \r\ncom.pvsstudio.PvsStudioCoreStartupException: Failed to run analyzer core. Make sure the correct 64-bit Java 11 or higher executable is used, or specify it manually. (Cannot run program \"java\": CreateProcess error\u003d2, Не удается найти указанный файл)\r\n\tat com.pvsstudio.PvsStudioInvoker.run(PvsStudioInvoker.java:136)\r\n\tat com.pvsstudio.intellij.AnalyzeTaskImpl.lambda$analyzeJavaProject$1(AnalyzeTaskImpl.java:165)\r\n\tat java.base/java.lang.Thread.run(Thread.java:1583)\r\n",
+      "projects": [],
+      "favorite": false,
+      "falseAlarm": false
+    }
+  ]
+}
