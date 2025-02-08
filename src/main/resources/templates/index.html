@@ -8,15 +8,14 @@
 </head>
 <body>
 
-<header th:insert="blocks/header :: header"></header>
+<header th:insert="~{blocks/header::header}"></header>
 
 <div class="container mt-5">
     <h1>Блог сайта</h1>
-    <div th:each="element : ${posts}" class="alert alert-info mt-2">
-        <h3 th:text="${element.title}"/>
-        <p th:text="${element.anons}"/>
-        <p th:text="'Просмотры = ' + ${element.views}"/>
-        <a th:href="'/blog/' + ${element.id}" class="btn btn-warning">Детальнее</a>
+    <div th:each="element : ${advertisments}" class="alert alert-info mt-2">
+        <h3 th:text="${element.name}"/>
+        <p th:text="${element.price}"/>
+        <a th:href="'/advt/' + ${element.id}" class="btn btn-warning">посмотреть</a>
     </div>
 </div>
 

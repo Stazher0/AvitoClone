@@ -6,9 +6,12 @@
 
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
             <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Главная</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/add">Добавить</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/blog/add">Мои объявления</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/about">Профиль</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Добавить</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Мои объявления</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Профиль</a>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Sign Out"/>
+            </form>
         </nav>
     </div>
 </div>
