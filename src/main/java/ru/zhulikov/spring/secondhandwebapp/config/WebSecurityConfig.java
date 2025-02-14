@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -41,15 +42,16 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
+                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
                         // Доступ только для не зарегистрированных пользователей
                         .requestMatchers("/registration").permitAll()
                         // Доступ только для пользователей с ролью Администратор
                         .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/news").hasRole("USER")
+//                        .requestMatchers("/news").hasRole("USER")
                         // Доступ разрешен всем пользователям
                         .requestMatchers("/", "/resources/**").permitAll()
+                        .requestMatchers("/user", "/resources/**").permitAll()
                         // Все остальные страницы требуют аутентификации
                         .anyRequest().authenticated()
                 )

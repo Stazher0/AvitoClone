@@ -3,7 +3,9 @@ package ru.zhulikov.spring.secondhandwebapp.models;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -25,6 +27,18 @@ public class Users implements UserDetails {
 
     private String username;
     private String password;
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "user_id=" + user_id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", role=" + role +
+                '}';
+    }
+
     @Transient
     private String confirmPassword;
 
@@ -63,6 +77,20 @@ public class Users implements UserDetails {
     @Override
     public boolean isEnabled() {
         return UserDetails.super.isEnabled();
+    }
+
+    public Long getAuthenticatedUserId(){
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if(authentication != null && authentication.isAuthenticated()){
+            Users users = (Users) authentication.getPrincipal();
+
+            System.out.println();
+
+            return users.getUser_id();
+        }
+        return null;
     }
 
 }

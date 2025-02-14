@@ -8,7 +8,7 @@
             <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Главная</a>
             <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Добавить</a>
             <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Мои объявления</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Профиль</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" th:href="@{/user/(user_id=${currentUserId})}">Мой Профиль</a>
             <form th:action="@{/logout}" method="post">
                 <input type="submit" value="Sign Out"/>
             </form>
